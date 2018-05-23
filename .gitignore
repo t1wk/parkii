@@ -1,0 +1,10 @@
+# Ignore WP files except the theme
+wp-admin/
+wp-includes/
+wp*.php
+twenty*/
+xmlrpc.php
+
+# TEMPORARY
+# Ignore plugins
+plugins/

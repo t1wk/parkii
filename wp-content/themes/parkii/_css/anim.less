@@ -1,0 +1,70 @@
+/*
+Description: UI Animation Elements Stack
+Version: 2.0 - Front-end animations
+Author, front-end: Christophe Drayton Zlobinski-Furmaniak
+Last edited: 08/04/2017
+*/
+
+@delay: 0.2s;
+@timing: ease-in;
+@anim: @delay @timing;
+
+/* -------------------------------------
+	Media Queries Resize
+------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+p, p.intro, p.emphasize, section.stats ul li span{
+	transition: font-size @anim;
+}
+
+/* -------------------------------------
+	Header
+------------------------------------- */
+header{
+	
+	transition: background-color @anim;
+	
+	a{
+		&.logo{
+			transition: width @anim, fill-opacity @anim, fill @anim;
+		}
+		
+		&.donate-cta{
+			transition: fill @anim;
+			
+			#heart-anim{
+				transform-origin: center;
+			}
+		}
+		
+	}
+	
+	nav:not(#social):not(#secondary){
+		ul li {
+			
+			a {
+				transition: color @anim;
+			}
+			
+			&.current{
+				a{
+					transition: color @anim;
+				}
+				
+				&:after{
+					transition: background-color @anim;
+				}
+			}
+			
+		}
+	}
+}
+
+/* -------------------------------------
+	Sections
+------------------------------------- */
+section{
+	--animation-delay: 0.3s;
+	--duration: 600ms;
+	--iterations: 1;
+}

@@ -1,0 +1,372 @@
+/*
+Project: Parkii
+Version: Work in Progress - 0.1
+Author, front-end: Chris Drayton
+Author, design: Chris Drayton
+Last edited: 05/21/2018
+
+Description: 
+**1. Html5doctor.com Reset Stylesheet + HTML5 Normalization 
+**2. Less Rules
+**3. Project Stylesheet 
+*/
+
+/* **1. Html5doctor.com Reset Stylesheet + HTML5 Normalization  */
+//@import "reset.css";
+
+
+/* -------------------------------------
+//	LESS PreCSSProcessor
+////////////////////////////////////////
+------------------------------------- */
+@import "elements.less"; /* LESS Elements */
+@import "grid.less"; /* Grid rules */
+@import "main_colors.less"; /* Main colors and neutrals */
+@import "fonts.less"; /* Fonts and typography style */
+@import "anim.less"; /* Animations */
+
+/* -------------------------------------
+//	CSS
+////////////////////////////////////////
+------------------------------------- */
+/* Typography 
+------------------------------------- */
+
+	h1, h2, h3, h4, h5, h6, p, ul, li, span, strong, em{
+		font-weight: normal;
+	    font-style: normal;
+	}
+	
+	h1{
+		display: inline-block;
+		position : relative;
+		//width: 100%;
+		padding: @gg;
+		text-transform: uppercase;
+		text-align: center;
+		.h1;
+	}
+	
+	h2{
+		display: inline-block;
+		position : relative;
+		//width: 100%;
+		padding: @gg;
+		text-transform: uppercase;
+		text-align: center;
+		.h2;
+	}
+	
+	h3{
+		display: inline-block;
+		position : relative;
+		width: 100%;
+		padding-bottom: @gg;
+		text-align: center;
+		text-transform: uppercase;
+		.h3;
+	}
+	
+	h4{
+		display: inline-block;
+		position : relative;
+		width: 100%;
+	}
+	
+	h5{
+		display: inline-block;
+		position : relative;
+		width: 100%;
+	}
+	
+	h6{
+		display: inline-block;
+		position : relative;
+		width: 100%;
+	}
+	
+	p{
+		text-align: center;
+		min-width: 25ch;
+		max-width: 55ch;
+		.p;
+		
+		strong{
+			font-weight: normal;
+			font-style: normal;
+		}
+		
+		&.intro{
+			width: 65vw;
+			color: @white;
+			.pintro;
+		}
+		
+		&.emphasize{
+		}
+	}
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		
+		li {
+			margin: 0;
+			padding: 0;
+			list-style-type: none; 
+		}
+	}
+
+/* -------------------------------------
+	Base
+------------------------------------- */
+	html { 
+		position: relative;
+		font-size: 62.5%; /* As browser default size is 16px, we scale down to 10px to simplify relatives sizes use (10px = 1rem, 12px = 1.2rem, 14px = 1.4rem, etc) */
+		color: @deepviolet;
+		overflow-x: hidden;
+		
+		&.lock{
+			overflow: hidden;
+		}
+	}
+	
+	body {
+	}
+	
+	.wrapper {
+		position: relative;
+		margin: 0 auto;
+		width: @wrapper_px;
+	}
+	
+	/* Supprime les cadres focus de Firefox */
+	a { 
+		/* outline: none; border: none; text-decoration: none;  */
+		text-decoration: none;
+		
+		/* .tr_out;
+	    &:hover { 
+	        .tr_in;
+	    } */
+	}
+	
+	:focus{-moz-outline-style: none;}
+	
+	img {
+		margin: 0;
+	}
+
+/* -------------------------------------
+	Same elements
+------------------------------------- */
+
+.none { // For development purpose
+	display: none !important;
+}
+
+.noverflow{
+	overflow: hidden;
+}
+
+.op{
+	.op(0);
+}
+
+.toreveal{
+	.op(0);
+}
+
+/* -------------------------------------
+	Home
+------------------------------------- */
+html{
+	
+	body{	
+	}
+
+}
+
+/* -------------------------------------
+	SVG
+------------------------------------- */
+svg:not(#idname){
+	fill: @pink;
+}
+
+/* -------------------------------------
+	Header & Footer
+------------------------------------- */
+header{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	//.z(1);
+	
+	nav{
+		position: absolute;
+		bottom: 0;
+		.z(3);	
+	}
+	
+	&.off{
+		.z(0);
+	}
+	
+	&.sticky{
+		//position: -webkit-sticky;
+		display: flex;
+		//align-items: center;
+		position: fixed;
+		top: 0px;
+		height: (@gc + @gg);
+		padding: 2vh 0;
+		background-color: fade(@white, 95%);
+		border-bottom: @pink 1px solid;
+		.z(9);
+		
+		a{
+			&.logo{
+				//margin-top: -45px;
+				//margin-top: 125px;
+				//top: 25%;
+				//transform: translateY(12%);
+				top: -105px;
+				
+				g#seal, g#brand{
+					fill-opacity: 0;
+				}
+			}
+		}
+		
+		.donate-cta{
+			top: 50%;
+			transform: translateY(-50%);
+			.z(4);
+		}
+		
+		nav:not(#social):not(#secondary):not(#nav-blog){
+			display: flex;
+			align-items: center;
+			bottom: auto;
+			
+			ul{
+				li{
+					
+					a{
+						//color: white;
+						
+						&:hover{
+							
+						}
+						
+					}
+					
+					&.current{ 
+					
+						a{
+							color: @pink;
+						}
+						
+						&:after{
+							background-color: @pink;
+						}
+					}
+				}
+			}
+			
+			&.desktop{
+				ul li:hover a{
+					color: @pink;
+				}
+			}
+		}
+	}
+	
+}
+
+footer{
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	
+	ul{
+		display: flex;
+		flex-direction: row;
+		
+		li{
+			a{
+				color: white;
+			}
+		}
+	}
+}
+
+footer{
+	height: (@gc + @gg);
+	padding: 0 5vw;
+	background: @black;
+	justify-content: space-between;
+	.box-model;
+	
+	p, li, li a, a:visited{
+		color: white;
+		font-size: 1.45rem;
+	}
+	
+	ul{
+		li{
+			display: block;
+			padding: 0 (@gg * .5);
+			border-right: 1px solid white;
+			
+			&:last-of-type{
+				border-right: none;
+			}
+			
+			&.current{
+			}
+		}
+	}
+}
+/* -------------------------------------
+	Section - General styles
+------------------------------------- */
+.fixed{
+	position: fixed;
+	
+}
+
+.ontop{
+	position: absolute;
+	top: 100vh;
+	
+	section:first-of-type{
+		padding-top: 25vh;
+	}
+}
+
+section {
+	position: relative;
+	width: 100vw;
+	padding: 10vh 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.z(6);
+}
+
+/* -------------------------------------
+	Section - Details
+------------------------------------- */
+section{
+	
+	
+}
+
+/* -------------------------------------
+	Blog - Details
+------------------------------------- */ 
+//@import "mediaqueries.less"; /* Mediaqueries */
+/*@import "modernizr"; /* CSS Fallbacks */
