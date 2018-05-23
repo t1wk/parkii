@@ -1,5 +1,5 @@
 # Parkii
-** This commit is just the structural PHP for WordPress templating. No layout has been coded yet **
+**This commit is just the structural PHP for WordPress templating. No layout has been coded yet**
 
 ## How this works
 This Github commits only the theme developped for Parkii. This version doesn't include the plugins yet. You need to download this theme in the wp-contents folder.
