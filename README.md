@@ -7,7 +7,7 @@ This Github commits only the theme developped for Parkii. This version doesn't i
 ## Requirements
 ### WordPress
 You need to have a clean installation of WorpPress in a local environment. 
-After you installation, change the value of line 80 to true of the file wp-config.php, as following:
+After installation, change the value of line 80 to true of the file wp-config.php, as following:
 ```
 define('WP_DEBUG', true);
 ```
