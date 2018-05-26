@@ -58,7 +58,7 @@
 		if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) {
 			wp_enqueue_style( 'parkii-style', get_template_directory_uri() . '/_css/styles.min.css' );
 		} else {
-			wp_enqueue_style( 'styles', get_template_directory_uri() . '/_css/reset.css' );
+			wp_enqueue_style( 'reset', get_template_directory_uri() . '/_css/reset.css' );
 			wp_enqueue_style( 'styles', get_template_directory_uri() . '/_css/styles.less' );
 		}
 	}
