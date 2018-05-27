@@ -1,4 +1,4 @@
-	<a class="logo" href="<?php echo home_url()?>"><span class="none">Parkii</span><?php //echo file_get_contents("_images/logo.svg", true); ?></a>
+	<a class="logo" href="<?php echo home_url()?>"><span class="none">Parkii</span><?php echo file_get_contents("_images/logo.svg", true); ?></a>
 	
 	<?php 
 	

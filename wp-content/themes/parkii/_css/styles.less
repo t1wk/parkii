@@ -32,15 +32,15 @@ Description:
 /* Typography 
 ------------------------------------- */
 
-	h1, h2, h3, h4, h5, h6, p, ul, li, span, strong, em{
+	h1, h2, h3, h4, h5, h6, nav ul li{
 		font-weight: normal;
 	    font-style: normal;
+	    font-family: "base-mono-narrow", monospace;
 	}
 	
 	h1{
 		display: inline-block;
 		position : relative;
-		//width: 100%;
 		padding: @gg;
 		text-transform: uppercase;
 		text-align: center;
@@ -50,7 +50,6 @@ Description:
 	h2{
 		display: inline-block;
 		position : relative;
-		//width: 100%;
 		padding: @gg;
 		text-transform: uppercase;
 		text-align: center;
@@ -71,18 +70,21 @@ Description:
 		display: inline-block;
 		position : relative;
 		width: 100%;
+		.h4;
 	}
 	
 	h5{
 		display: inline-block;
 		position : relative;
 		width: 100%;
+		.h5;
 	}
 	
 	h6{
 		display: inline-block;
 		position : relative;
 		width: 100%;
+		.h5;
 	}
 	
 	p{
@@ -92,28 +94,21 @@ Description:
 		.p;
 		
 		strong{
-			font-weight: normal;
+			font-weight: bold;
 			font-style: normal;
-		}
-		
-		&.intro{
-			width: 65vw;
-			color: @white;
-			.pintro;
-		}
-		
-		&.emphasize{
 		}
 	}
 	
 	ul {
 		margin: 0;
 		padding: 0;
+		.p;
 		
 		li {
 			margin: 0;
 			padding: 0;
-			list-style-type: none; 
+			list-style-type: none;
+			.p;
 		}
 	}
 
@@ -123,7 +118,7 @@ Description:
 	html { 
 		position: relative;
 		font-size: 62.5%; /* As browser default size is 16px, we scale down to 10px to simplify relatives sizes use (10px = 1rem, 12px = 1.2rem, 14px = 1.4rem, etc) */
-		color: @deepviolet;
+		color: @black;
 		overflow-x: hidden;
 		
 		&.lock{
@@ -132,12 +127,19 @@ Description:
 	}
 	
 	body {
+		font-family: Helvetica, Arial, sans-serif;
+		border-top: @gg @violet solid;
 	}
 	
 	.wrapper {
 		position: relative;
 		margin: 0 auto;
 		width: @wrapper_px;
+	}
+	
+	.container{
+		width: (@gc * 9) + (@gg * 8);
+		margin: 0 auto;
 	}
 	
 	/* Supprime les cadres focus de Firefox */
@@ -191,38 +193,85 @@ html{
 	SVG
 ------------------------------------- */
 svg:not(#idname){
-	fill: @pink;
 }
 
 /* -------------------------------------
 	Header & Footer
 ------------------------------------- */
 header{
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-	//.z(1);
+	display: flex;
+	width: 100%;
+	height: (@gc * 2);
+	padding: @gg 0;
+	align-items: center;
+	justify-content: space-between;
 	
 	nav{
-		position: absolute;
-		bottom: 0;
-		.z(3);	
+		
+		ul{
+			display: inline-flex;
+			flex-direction: row;
+			justify-content: space-between;
+			
+			li{
+				margin-right: @gg;
+				position: relative;
+				padding: 1.5vh 0.5vw;
+				text-transform: uppercase;
+				font-weight: bold;
+				.h4;
+				overflow: hidden;
+				
+				&:last-of-type{
+					margin: 0;
+				}
+				
+				&:after{
+					position: absolute;
+					content: "";
+					width: 100%;
+					height: 4px;
+					bottom: 0;
+					left: 0;
+					transform: translateX(-100%);
+				}
+				
+				&:hover{
+					&:after{
+						background-color: @violet;
+					}
+				}
+				
+				&.current-menu-item{ 
+					
+					a{
+						color: @pink;
+					}
+					
+					&:after{
+						transform: translateX(0);
+						background-color: @pink;
+					}
+				}
+					
+				a{
+					color: @violet;
+				}
+			}
+		}
 	}
-	
-	&.off{
-		.z(0);
+
+	a.logo{
+		width: (@gc * 2) + (@gg * 2);
 	}
 	
 	&.sticky{
-		//position: -webkit-sticky;
 		display: flex;
 		//align-items: center;
 		position: fixed;
 		top: 0px;
 		height: (@gc + @gg);
 		padding: 2vh 0;
-		background-color: fade(@white, 95%);
-		border-bottom: @pink 1px solid;
 		.z(9);
 		
 		a{
@@ -235,49 +284,6 @@ header{
 				
 				g#seal, g#brand{
 					fill-opacity: 0;
-				}
-			}
-		}
-		
-		.donate-cta{
-			top: 50%;
-			transform: translateY(-50%);
-			.z(4);
-		}
-		
-		nav:not(#social):not(#secondary):not(#nav-blog){
-			display: flex;
-			align-items: center;
-			bottom: auto;
-			
-			ul{
-				li{
-					
-					a{
-						//color: white;
-						
-						&:hover{
-							
-						}
-						
-					}
-					
-					&.current{ 
-					
-						a{
-							color: @pink;
-						}
-						
-						&:after{
-							background-color: @pink;
-						}
-					}
-				}
-			}
-			
-			&.desktop{
-				ul li:hover a{
-					color: @pink;
 				}
 			}
 		}
@@ -325,6 +331,7 @@ footer{
 			}
 			
 			&.current{
+				color: @pink;
 			}
 		}
 	}
@@ -332,24 +339,10 @@ footer{
 /* -------------------------------------
 	Section - General styles
 ------------------------------------- */
-.fixed{
-	position: fixed;
-	
-}
-
-.ontop{
-	position: absolute;
-	top: 100vh;
-	
-	section:first-of-type{
-		padding-top: 25vh;
-	}
-}
-
 section {
 	position: relative;
-	width: 100vw;
-	padding: 10vh 0;
+	width: 100%;
+	margin: 5vh 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -361,12 +354,41 @@ section {
 	Section - Details
 ------------------------------------- */
 section{
-	
+	&#intro{
+		background: url("http://parkiishop.com/siteview/wp-content/uploads/2018/04/shea-bucket.jpg");
+		.bkg(cover);
+		
+		h1, p{
+			color: @white;
+		}
+		
+		h1{
+			padding: 3vw;
+			width: 11ch;
+			align-self: flex-start;
+			text-align: left;
+			text-shadow: 3px -3px 5px rgba(0,0,0,0.3);
+		}
+		
+		p{
+			padding: 2vh 5vw;
+			background-color: fade(@w50, 65%);
+			width: 100%;
+			max-width: none;
+			.box-model;
+			.h4;
+		}
+	}
 	
 }
 
 /* -------------------------------------
 	Blog - Details
-------------------------------------- */ 
-//@import "mediaqueries.less"; /* Mediaqueries */
+------------------------------------- */
+
+
+/* -------------------------------------
+	Media Queries 
+------------------------------------- */
+@import "mediaqueries.less"; /* Mediaqueries */
 /*@import "modernizr"; /* CSS Fallbacks */

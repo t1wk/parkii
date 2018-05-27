@@ -6,11 +6,12 @@
 //----------------------------------------
 
 // Pixels references
+// Based on Sketch layout grid
 //----------------------------------------
-@gc_px: 60px;
-@gg_px: 20px;
-@gm_px: (@gc * 1) + (@gg * 1);
-@wrapper_px: (@gc_px * 24) + (@gg_px * 23);
+@gc_px: 60px; // Column Width
+@gg_px: 20px; // Gutter Width
+@gm_px: (@gc * 1) + (@gg * 1); // Offset
+@wrapper_px: (@gc_px * 12) + (@gg_px * 12); // Total layout (12 columns)
 //----------------------------------------
 
 //----------------------------------------
@@ -39,21 +40,18 @@
 //----------------------------------------
 
 
-// Rem to vw conversion, based on 1920px design template
+// Rem to vw conversion, based on 1024px design template
 // http://emilolsson.com/tools/vw-unit-calc-an-online-responsive-css-font-size-calculator/
 :root{
 	
 	// sizes in px
-	--h1: 60;
-	--h2: 36;
-	--h3: 24;
-	--h4: 30;
+	--h1: 45;
+	--h2: 25.5;
+	--h3: 22;
+	--h4: 18;
 	--h5: 24.5;
 	--h6: 18;
-	--p: 24;
-	--pintro: 60;
-	--plist: 14.5;
-	--span: 200;
+	--p: 16;
 }
 
 // Typographic Grid
@@ -98,13 +96,6 @@
 .p {
     font-size: ~"calc(var(--p)/var(--context) * 1vw)";
     //line-height: 1.46vw;	// 2.8rem
-	font-weight: normal;
-    font-style: normal;
-}
-
-.pintro {
-    font-size: ~"calc(var(--pintro)/var(--context) * 1vw)";		// 6rem
-    //line-height: 3.65vw;		// 7rem
 	font-weight: normal;
     font-style: normal;
 }

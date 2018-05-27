@@ -8,20 +8,8 @@
 		Typographic grid
 	------------------------------------- */
 		:root{
-			--context: 19.2; // 1920px * 0.01
-		}
-		
-		p {			
-			&.emphasize{
-				font-size: ~"calc(var(--h4)/var(--context) * 1vw)";
-			}
-		    
-		}
-		
-		section{
-			&.stats ul li span{
-				font-size: ~"calc(var(--span)/var(--context) * 1vw)";
-			}
+			//--context: 19.2; // 1920px * 0.01
+			--context: 16;
 		}
 }
 
@@ -41,8 +29,6 @@
 	:root{
 		--context: 14.4; // 1400px * 0.01
 		--h1: 50;
-		--pintro: 50;
-		--span: 170;
 	}
 	
 	a.logo{
@@ -91,11 +77,6 @@
 			
 	.fixed{
 		position: unset;
-	}
-	
-	section h1, section h2 {
-		clip-path: none;
-		-webkit-clip-path: none;	
 	}
 }
 
@@ -353,14 +334,13 @@ screen and (max-width: 320px){
 			margin:0;
 			opacity:0;
 			.h2;
-			.btb;
 		}
 	}
 	
 	.phone{
 		width:0;
 		height:0;
-		border:0 solid @prune;
+		border:0 solid @pink;
 		background: fade(@white, 95%);
 		border-radius:10px;
 		box-sizing:border-box;
@@ -400,7 +380,7 @@ screen and (max-width: 320px){
 	
 	/* fade-in  */
 	@keyframes fadeIn { 
-		100% { color:@prune; opacity:1; } 
+		100% { color:@pink; opacity:1; } 
 	}
 	
 	/* Rotate device */

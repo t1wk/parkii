@@ -29,30 +29,29 @@ header{
 			transition: width @anim, fill-opacity @anim, fill @anim;
 		}
 		
-		&.donate-cta{
-			transition: fill @anim;
-			
-			#heart-anim{
-				transform-origin: center;
-			}
-		}
-		
 	}
 	
-	nav:not(#social):not(#secondary){
+	nav{
 		ul li {
 			
 			a {
 				transition: color @anim;
 			}
 			
-			&.current{
+			&:after{
+				transition: transform @anim;
+				transform: translateX(-100%);
+			}
+			
+			&:hover{
+				&:after{
+					transform: translateX(0);
+				}
+			}
+			
+			.current-menu-item{
 				a{
 					transition: color @anim;
-				}
-				
-				&:after{
-					transition: background-color @anim;
 				}
 			}
 			
